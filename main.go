@@ -37,7 +37,7 @@ var (
 	directorySizeDesc = prometheus.NewDesc(
 		"directory_size",
 		"Current used directory size(MB).",
-		[]string{"userName"}, nil,
+		[]string{"directoryName"}, nil,
 	)
 )
 

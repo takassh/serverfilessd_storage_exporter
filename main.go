@@ -27,7 +27,7 @@ var (
 )
 
 const (
-	namespace   = "diectorySize"
+	namespace   = "storage"
 	metricsPath = "/metrics"
 )
 

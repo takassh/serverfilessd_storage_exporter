@@ -47,7 +47,7 @@ func (cc myCollector) Describe(ch chan<- *prometheus.Desc) {
 
 //GetDirectorySize ...
 func GetDirectorySize() map[string]int {
-	cmd := "du -d 2 /mnt/nfs/workspace 2>/dev/null | sort -hr"
+	cmd := "du -d 2 /mnt/ssd/gpu/workspace 2>/dev/null | sort -hr"
 	out, _ := exec.Command("sh", "-c", cmd).Output()
 	output := string(out)
 	lines := strings.Split(output, "\n")

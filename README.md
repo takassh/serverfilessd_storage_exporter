@@ -1,1 +1,1 @@
-# directory_size_exporter
+# storage_exporter

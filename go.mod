@@ -1,4 +1,4 @@
-module github.com/takassh/directory_size_exporter
+module github.com/takassh/storage_exporter
 
 go 1.15
 

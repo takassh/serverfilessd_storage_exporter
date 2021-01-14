@@ -12,20 +12,6 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-// ResponseJSON is struct of Jupyterhub response for /hub/api/users
-type ResponseJSON []struct {
-	Name         string `json:"name"`
-	Server       string `json:"server"`
-	LastActivity string `json:"last_activity"`
-}
-
-var (
-	apiHost  = flag.String("host", "http://localhost:8888/hub/api", "API host")
-	willStop = flag.Bool("stop", true, "stop single server")
-	apiToken = flag.String("token", "", "jupyterhub token (admin)")
-	waitHour = flag.Int("hours", 24, "hours to wait for stop server")
-)
-
 const (
 	namespace   = "storage"
 	metricsPath = "/metrics"
@@ -37,7 +23,7 @@ var (
 	directorySizeDesc = prometheus.NewDesc(
 		"directory_size",
 		"Current used directory size(MB).",
-		[]string{"directoryName"}, nil,
+		[]string{"directory"}, nil,
 	)
 )
 
@@ -85,9 +71,9 @@ func main() {
 	http.Handle(metricsPath, promhttp.HandlerFor(reg, promhttp.HandlerOpts{}))
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		_, _ = w.Write([]byte(`<html>
-			<head><title>Directory Size Exporter</title></head>
+			<head><title>Storage Exporter</title></head>
 			<body>
-			<h1>Directory Size Exporter</h1>
+			<h1>Storage Exporter</h1>
 			<p><a href="` + metricsPath + `">Metrics</a></p>
 			</body>
 			</html>`))

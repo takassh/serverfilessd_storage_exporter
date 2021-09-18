@@ -21,7 +21,7 @@ type myCollector struct{}
 
 var (
 	directorySizeDesc = prometheus.NewDesc(
-		"directory_size",
+		"serverfilessd_directory_size",
 		"Current used directory size(MB).",
 		[]string{"directory"}, nil,
 	)
@@ -71,9 +71,9 @@ func main() {
 	http.Handle(metricsPath, promhttp.HandlerFor(reg, promhttp.HandlerOpts{}))
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		_, _ = w.Write([]byte(`<html>
-			<head><title>Storage Exporter</title></head>
+			<head><title>Serverfilessd Storage Exporter</title></head>
 			<body>
-			<h1>Storage Exporter</h1>
+			<h1>Serverfilessd Storage Exporter</h1>
 			<p><a href="` + metricsPath + `">Metrics</a></p>
 			</body>
 			</html>`))

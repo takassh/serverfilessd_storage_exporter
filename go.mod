@@ -1,8 +1,5 @@
-module github.com/takassh/storage_exporter
+module github.com/takassh/serverfilessd_storage_exporter
 
-go 1.15
+go 1.17
 
-require (
-	github.com/mattn/go-pipeline v0.0.0-20190323144519-32d779b32768
-	github.com/prometheus/client_golang v1.9.0
-)
+require github.com/prometheus/client_golang v1.11.0
